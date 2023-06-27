@@ -4,7 +4,7 @@ Algoritmo em python que recebe duas cadeias de bases nitrogenadas, faz a montage
 ## Primeira versão
 Esta versão recebe dois arquivos em formato .fasta contendo as cadeias a serem comparadas e gera um arquivo em html contendo a representação visual das duas cadeias bem como a ocorrência dos nucleotideos presentes nelas.
 
-Para que o mesmo funcione é preciso que os arquivos .fasta estejam no mesmo nível de acesso que o arquivo main.py
+Para que o mesmo funcione é preciso que os arquivos .fasta estejam dentro da pasta data
 
 ## Teoria
 >DNA é uma molécula presente em todos os seres vivos, que é responsável por armazenar as características hereditárias. Ela é composta por sequências de nucleotídeos, que podem de quatro tipos: adenina, timina, citosina ou guanina.
