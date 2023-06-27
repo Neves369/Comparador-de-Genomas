@@ -11,7 +11,7 @@ Para que o mesmo funcione é preciso que os arquivos .fasta estejam no mesmo ní
 >"Computacionalmente" falando podemos representá-los através de 4 letras: A, T, C ou G.
 
 ## Estudo de caso
-Usando as sequências human_18s_rRNA_gene.fasta e escherichia_coli_strain_U_5/41_16S_rRNA_partial.fasta,
+Usando as sequências human_18s_rRNA_gene.fasta e escherichia_coli_strain_U_5_41_16S_rRNA_partial.fasta,
 presentes na pasta data, podemos avaliar se estruturas com funções parecidas (estamos usando sequências de RNA ribossomal) de organismos diferentes têm diferenças. Para isso vamos avaliar a quantidade de pares de nucleotídeos.
 
 
