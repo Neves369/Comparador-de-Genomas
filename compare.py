@@ -10,8 +10,8 @@ def main():
     print ('usage: ./compare.py  file1 file2')
     sys.exit(1)
 
-  filename1 = "data/" + sys.argv[1]
-  filename2 = "data/" + sys.argv[2]
+  filename1 =  sys.argv[1]
+  filename2 =  sys.argv[2]
 
   
   if (os.path.exists('output') == False):

@@ -1,8 +1,8 @@
 
 
 def generateDensityView(filename1, filename2):
-    entrada1 = open(filename1).read()
-    entrada2 = open(filename2).read()
+    entrada1 = open("data\\" + filename1).read()
+    entrada2 = open("data\\" + filename2).read()
     saida = open("output/density.html", "w")
 
 
@@ -38,7 +38,7 @@ def generateDensityView(filename1, filename2):
     # primeiro genoma
     # div do primeiro genoma
     saida.write("<div>")
-    saida.write("<h2>Primeiro Genoma</h2>")
+    saida.write("<h2>"+filename1.split('.')[0]+"</h2>")
     i = 1
     for k in count1:
         transparencia = count1[k]/max(count1.values())
@@ -52,7 +52,7 @@ def generateDensityView(filename1, filename2):
     # segundo genoma
     # div do segundo genoma
     saida.write("<div>")
-    saida.write("<h2>Segundo Genoma</h2>")
+    saida.write("<h2>"+filename2.split('.')[0]+"</h2>")
     i = 1
     for k in count2:
         transparencia = count2[k]/max(count2.values())
