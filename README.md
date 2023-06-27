@@ -1,10 +1,17 @@
 # Comparador-de-Genomas
 Algoritmo em python que recebe duas cadeias de bases nitrogenadas, faz a montagem dos nucleotideos e gera uma comparação visual entre elas.
 
-## Primeira versão
+## Segunda versão
 Esta versão recebe dois arquivos em formato .fasta contendo as cadeias a serem comparadas e gera um arquivo em html contendo a representação visual das duas cadeias bem como a ocorrência dos nucleotideos presentes nelas.
 
 Para que o mesmo funcione é preciso que os arquivos .fasta estejam dentro da pasta data
+
+### modo de uso
+>Coloque os arquivos .fasta na pasta data
+>Abra o prompt de comando no diretório raiz do projeto
+>execute o comando python compare.py filname1 filename2
+
+"onde filname1 e filename2 são os nomes dos arquivos, incluindo a extensão .fasta"
 
 ## Teoria
 >DNA é uma molécula presente em todos os seres vivos, que é responsável por armazenar as características hereditárias. Ela é composta por sequências de nucleotídeos, que podem de quatro tipos: adenina, timina, citosina ou guanina.
