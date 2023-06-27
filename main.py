@@ -1,6 +1,7 @@
-entrada1 = open("bacteria.fasta").read()
-entrada2 = open("human.fasta").read()
+entrada1 = open("data/escherichia_coli_strain_U_5_41_16S_rRNA_partial.fasta").read()
+entrada2 = open("data/human_18s_rRNA_gene.fasta").read()
 saida = open("comparacao.html", "w")
+
 
 count1 = {}
 count2 = {}
@@ -11,12 +12,11 @@ for i in ['A', 'T', 'C', 'G']:
         count1[i+j] = 0
         count2[i+j] = 0
 
-print(count1)
-print(count2)
 
 # Remove quebra de linha dos arquivos
 entrada1 = entrada1.replace("\n", "")
 entrada2 = entrada2.replace("\n", "")
+
 
 # --- Faz a contagem das sequências de nucleotídeos ---
 for k in range(len(entrada1) - 1):
@@ -40,7 +40,7 @@ i = 1
 for k in count1:
     transparencia = count1[k]/max(count1.values())
     saida.write(
-        "<div style='width: 100px; border:1px solid #111; height: 100px; float:left; color:#fff; background-color:rgba(0, 0, 0, "+str(transparencia)+")'>"+k+"</div> ")
+        "<div style='width: 100px; border:1px solid #111; height: 100px; float:left; color:#fff; background-color:rgba(0, 0, 0, "+str(transparencia)+")'>"+ k + " = " + str(count1[k]) + "</div> ")
     if i % 4 == 0:
         saida.write("<div style='clear:both'></div>")
     i += 1
@@ -54,11 +54,23 @@ i = 1
 for k in count2:
     transparencia = count2[k]/max(count2.values())
     saida.write(
-        "<div style='width: 100px; border:1px solid #111; height: 100px; float:left; color:#fff; background-color:rgba(0, 0, 0, "+str(transparencia)+")'>"+k+"</div> ")
+        "<div style='width: 100px; border:1px solid #111; height: 100px; float:left; color:#fff; background-color:rgba(0, 0, 0, "+str(transparencia)+")'>"+ k + " = " + str(count2[k]) + "</div> ")
     if i % 4 == 0:
         saida.write("<div style='clear:both'></div>")
     i += 1
 saida.write("</div>")
+
+# div da legenda
+saida.write("<div style='display: flex; flex-direction: column;'>")
+saida.write("<div>")
+saida.write("<div style='width: 30px; border:1px solid #111; height: 30px; float:left; color:#000; background-color:rgba(0, 0, 0, 0); border-radius: 15px;'></div>")
+saida.write("<div style='width: 100px; height: 30px; color:#000; margin: 5px'>"+" min value "+"</div></div>")
+saida.write("<div style='margin-top: 15px'>")
+saida.write("<div style='width: 30px; border:1px solid #111; height: 30px; float:left; color:#fff; background-color:rgba(0, 0, 0, 1); border-radius: 15px;'></div>")
+saida.write("<div style='width: 100px; height: 50px; color:#000;  margin: 5px'>"+" max value "+"</div></div>")
+saida.write("</div>")
+
+
 
 saida.write("</div>")
 
