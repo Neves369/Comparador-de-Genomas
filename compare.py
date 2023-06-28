@@ -1,10 +1,10 @@
 import os
-from modules import density, densityChart
+from modules import density, densityChart, animationLoading
 import inquirer
 
 def main():
 
-  os.system('cls')
+  # os.system('cls')
 
   print("""
      ____________________________________________________________________
@@ -70,7 +70,9 @@ def main():
   if(answers['gerarGrafico']):  
     densityChart.generateChart(filename1=filename1, filename2=filename2)
 
+  animationLoading.load_animation()
   os.system('cls')
+
 
   print("""
   -------------------------------------------------------------------
@@ -85,7 +87,19 @@ def main():
   -------------GERADOS ARQUIVOS DE VISUALIZAÇÃO----------------------
                   --confira a pasta output--
   """) 
-  
+
+  confirm = {
+    inquirer.Confirm(
+      'confirmed',
+      message="Deseja sair?" ,
+      default=True),
+  }
+  confirmation = inquirer.prompt(confirm)
+
+  if(confirmation["confirmed"]):
+    quit()
+
 
 if __name__ == '__main__':
-  main()
+  while True:
+    main()
