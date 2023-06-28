@@ -21,6 +21,9 @@ Para que o mesmo funcione é preciso que os arquivos .fasta estejam dentro da pa
 Usando as sequências human_18s_rRNA_gene.fasta e escherichia_coli_strain_U_5_41_16S_rRNA_partial.fasta,
 presentes na pasta data, podemos avaliar se estruturas com funções parecidas (estamos usando sequências de RNA ribossomal) de organismos diferentes têm diferenças. Para isso vamos avaliar a quantidade de pares de nucleotídeos.
 
+### Resutado
+![densityChart](https://github.com/Neves369/Comparador-de-Genomas/assets/63128431/e9f52084-bae1-4b18-8061-231608344d8f)
+
 
 
 
