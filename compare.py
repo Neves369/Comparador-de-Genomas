@@ -1,17 +1,62 @@
-
-
-import sys
 import os
-from modules import density
-
+from modules import density, densityChart
+import inquirer
 
 def main():
-  if len(sys.argv) != 3:
-    print ('usage: ./compare.py  file1 file2')
-    sys.exit(1)
 
-  filename1 =  sys.argv[1]
-  filename2 =  sys.argv[2]
+  os.system('cls')
+
+  print("""
+     ____________________________________________________________________
+    |--------------------------------------------------------------------|
+    |      ██╗    ███████████╗     ██████╗██████╗███╗   ██████████╗      |
+    |      ██║    ████╔════██║    ██╔════██╔═══██████╗ ██████╔════╝      |
+    |      ██║ █╗ ███████╗ ██║    ██║    ██║   ████╔████╔███████╗        |
+    |      ██║███╗████╔══╝ ██║    ██║    ██║   ████║╚██╔╝████╔══╝        |
+    |      ╚███╔███╔██████████████╚██████╚██████╔██║ ╚═╝ █████████╗      |
+    |       ╚══╝╚══╝╚══════╚══════╝╚═════╝╚═════╝╚═╝     ╚═╚══════╝      |
+    |                                                                    |
+    |-------------------------COMPARADOR DE GENOMAS----------------------|
+    |--Informe os arquivos a serem comparados                            |
+    |--depois selecione as opções de saída                               |
+    |                                                                    |
+    |--------------------------------------------------------------------|
+    |____________________________________________________________________| 
+  """) 
+
+
+
+  # listar arquivos da pasta data
+  caminhos = [os.path.join("data", nome) for nome in os.listdir("data")]
+  arquivos = [arq for arq in caminhos if os.path.isfile(arq)]
+  fasta = [arq[5:] for arq in arquivos if arq.lower().endswith(".fasta")]
+
+
+  questions = [
+    inquirer.List(
+      'filename1',
+      message="Selecione o primeiro arquivo: ",
+      choices=fasta,
+    ),
+    inquirer.List(
+     'filename2',
+      message="Selecione o segundo arquivo: ",
+      choices=fasta,
+    ),
+    inquirer.Confirm(
+      'gerarHtml',
+      message="Deseja gerar o arquivo de comparação visual?" ,
+      default=True),
+    inquirer.Confirm(
+      'gerarGrafico',
+      message="Deseja gerar o gráfico de dispersão?" ,
+      default=True),
+    
+  ]
+
+  answers = inquirer.prompt(questions)
+  filename1 =  answers["filename1"]
+  filename2 =  answers["filename2"]
 
   
   if (os.path.exists('output') == False):
@@ -20,11 +65,27 @@ def main():
     except:
       print("Não foi possível criar diretório") 
 
-  density.generateDensityView(filename1=filename1, filename2=filename2)
+  if(answers['gerarHtml']):
+    density.generateDensityView(filename1=filename1, filename2=filename2)
+  if(answers['gerarGrafico']):  
+    densityChart.generateChart(filename1=filename1, filename2=filename2)
 
+  os.system('cls')
+
+  print("""
+  -------------------------------------------------------------------
+
+   ██████╗██████╗███╗   █████████╗██╗    ██████████████████████╗
+  ██╔════██╔═══██████╗ ██████╔══████║    ██╔════╚══██╔══██╔════╝
+  ██║    ██║   ████╔████╔████████╔██║    █████╗    ██║  █████╗  
+  ██║    ██║   ████║╚██╔╝████╔═══╝██║    ██╔══╝    ██║  ██╔══╝  
+  ╚██████╚██████╔██║ ╚═╝ ████║    ██████████████╗  ██║  ███████╗
+  ╚═════╝╚═════╝╚═╝     ╚═╚═╝    ╚══════╚══════╝  ╚═╝  ╚══════╝
+
+  -------------GERADOS ARQUIVOS DE VISUALIZAÇÃO----------------------
+                  --confira a pasta output--
+  """) 
   
-
-
 
 if __name__ == '__main__':
   main()
