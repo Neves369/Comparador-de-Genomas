@@ -1,10 +1,10 @@
 import os
-from modules import density, densityChart, animationLoading
+from modules import density, densityChart, animationLoading, helix
 import inquirer
 
 def main():
 
-  # os.system('cls')
+  os.system('cls')
 
   print("""
      ____________________________________________________________________
@@ -51,6 +51,10 @@ def main():
       'gerarGrafico',
       message="Deseja gerar o gráfico de dispersão?" ,
       default=True),
+    # inquirer.Confirm(
+    #   'helix',
+    #   message="Deseja gerar o modelo Helix?" ,
+    #   default=True),
     
   ]
 
@@ -69,10 +73,10 @@ def main():
     density.generateDensityView(filename1=filename1, filename2=filename2)
   if(answers['gerarGrafico']):  
     densityChart.generateChart(filename1=filename1, filename2=filename2)
+  # if(answers['helix']):  
+  #   helix.generateHelixView(filename1=filename1, filename2=filename2)
 
   animationLoading.load_animation()
-  os.system('cls')
-
 
   print("""
   -------------------------------------------------------------------
