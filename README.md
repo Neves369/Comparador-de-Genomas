@@ -9,7 +9,7 @@ Para que o mesmo funcione é preciso que os arquivos .fasta estejam dentro da pa
 
 ### modo de uso
 >Coloque os arquivos .fasta na pasta data
->Abra o prompt de comando no diretório raiz do projeto
+>xecute o arquivo compare.exe ou abra o prompt de comando no diretório raiz do projeto
 >execute o comando python compare.py
 >selecione os arquivos e as opções de saídas desejadas 
 
